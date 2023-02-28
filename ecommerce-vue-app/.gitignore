@@ -25,7 +25,8 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-/src/assets/images
+/public/images
+/public/Fonts
 README.md
 README-template.md
 style-guide.md

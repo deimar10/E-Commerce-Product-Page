@@ -10,3 +10,23 @@ $Grayish-blue: hsl(220, 14%, 75%);
 $Light-grayish-blue: hsl(223, 64%, 98%);
 $White: hsl(0, 0%, 100%);
 $Black: hsl(0, 0%, 0%);
+
+// Fonts
+@font-face {
+    font-family: 'KumbhSans-Bold';
+    src: url('/public/Fonts/static/KumbhSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'KumbhSans-Medium';
+    src: url('/public/Fonts/static/KumbhSans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'KumbhSans-Regular';
+    src: url('/public/Fonts/static/KumbhSans-Regular.ttf') format('truetype');
+}
+
+$KumbhSans-Bold: 'KumbhSans-Bold';
+$KumbhSans-Medium: 'KumbhSans-Medium';
+$KumbhSans-Regular: 'KumbhSans-Regular';
