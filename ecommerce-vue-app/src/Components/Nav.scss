@@ -1,0 +1,40 @@
+@import '../Variables/Variable.scss';
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $Grayish-blue;
+    nav {
+        width: 80%;
+    }
+    nav ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        width: 40%;
+    }
+    nav a {
+        color: $Dark-grayish-blue;
+        font-size: 1.25rem;
+        text-decoration: none;
+        font-family: $KumbhSans-Medium;
+    }
+}
+
+.cart-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20%;
+    img:first-child {
+        height: 10%;
+        width: 10%;
+    }
+    img:last-child {
+        width: 15%;
+    }
+}
