@@ -3,7 +3,7 @@
         <div class="cart-heading-section">
             <h4>Cart</h4>
         </div>
-        <div class="cart-product-section">
+        <div v-if="addCart === true" class="cart-product-section">
             <div class="cart-product-left">
                 <img src="/public/images/image-product-1-thumbnail.jpg" />
             </div>
@@ -11,19 +11,33 @@
                 <h4>Fall Limited Edition Sneakers</h4>
                 <div class="cart-pricing">
                     <p>$125.00 x 3</p><span>$375.00</span>
-                    <fa id="trash-icon" icon="trash-can" />
+                    <fa @click="remove" id="trash-icon" icon="trash-can" />
                 </div>
             </div>
         </div>
-        <div class="cart-checkout-section">
+        <div v-if="addCart" class="cart-checkout-section">
             <button id="checkout">Checkout</button>
+        </div>
+        <div v-if="addCart === false" class="cart-product-section">
+            <p id="empty-message">Your Cart is empty.</p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Cart'
+    name: 'Cart',
+    props: {
+        addCart: {
+            type: Boolean,
+            required: true
+        }
+    }, 
+    methods: {
+        remove() {
+            this.$emit('update:addCart', false);
+        }
+    }
 }
 </script>
 

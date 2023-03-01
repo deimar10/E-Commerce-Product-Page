@@ -2,7 +2,7 @@
      <div class="home-container">
         <Nav @toggle-cart='toggleCart' />
         <div class="product-main-section">
-          <Cart v-if="showCart" />
+          <Cart :add-cart="addCart" @update:addCart="updateAddCart" v-if="showCart" />
           <div class="product-images-section">
             <div class="product-image">
               <img src="/public/images/image-product-1.jpg" />
@@ -34,7 +34,7 @@
                 <p id="count">0</p>
                 <button id="plus">+</button>
               </div>
-              <button id="cart"><span><fa id="cart-icon" icon="cart-shopping" /></span>Add to cart</button>
+              <button @click="addToCart" id="cart"><span><fa id="cart-icon" icon="cart-shopping" /></span>Add to cart</button>
             </div>
           </div>
         </div>
@@ -53,12 +53,20 @@ export default {
   },
   data() {
     return {
-      showCart: false
+      showCart: false,
+      addCart: false
     }
   },
   methods: {
     toggleCart() {
       this.showCart = !this.showCart
+    },
+    addToCart() {
+      this.addCart = true
+      this.$emit('add-to-cart', this.addCart)
+    },
+    updateAddCart(value) {
+      this.addCart = value;
     }
   }
 }
