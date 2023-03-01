@@ -1,0 +1,126 @@
+@import '../Variables/Variable.scss';
+
+body {
+    font-family: $KumbhSans-Regular;
+}
+
+.product-main-section {
+    display: flex;
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.product-images-section {
+    width: 50%;
+    .product-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img {
+            width: 75%;
+            border-radius: 1rem;
+        }
+    }
+    .product-image-thumbnails {
+        display: flex;
+        justify-content: space-between;
+        width: 75%;
+        margin: 0 auto;
+        padding-top: 1rem;
+    } img {
+        width: 20%;
+        border-radius: 1rem;
+    }
+}
+
+.product-description-section {
+    width: 50%;
+    .description {
+        width: 75%;
+        h3 {
+            color: $Orange;
+            text-transform: uppercase;
+            font-family: $KumbhSans-Medium;
+        }
+        h1 {
+            font-family: $KumbhSans-Bold;
+            font-size: 3rem;
+        }
+        p {
+            color: $Dark-grayish-blue;
+            line-height: 1.75rem;
+        }
+    }
+}
+
+.price-section {
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+    align-items: center;
+    p {
+        font-family: $KumbhSans-Bold;
+        font-size: 1.25rem;
+    }
+    label {
+        background-color: $Pale-orange;
+        width: 3rem;
+        padding: 0.25rem;
+        text-align: center;
+        color: $Orange;
+        font-family: $KumbhSans-Bold;
+        border-radius: 0.25rem;
+    }
+}
+
+.home-cart-section {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .amount-section {
+        display: flex;
+        align-items: center;
+        background-color: rgb(244, 244, 244);
+        border-radius: 0.25rem;
+        height: 100%;
+        #minus {
+            color: $Orange;
+            background-color: rgb(244, 244, 244);
+            border: 0;
+            border-radius: 0.25rem;
+            width: 4rem;
+            font-size: 1.75rem;
+        }
+        #count {
+            @extend #minus;
+            text-align: center;
+            color: black;
+            font-size: 1rem;
+            font-family: $KumbhSans-Medium
+        }
+        #plus {
+            @extend #minus;
+        }
+    }
+    #cart {
+        background-color: $Orange;
+        color: $White;
+        border-radius: 0.5rem;
+        border: 0;
+        height: 100%;
+        padding: 1rem;
+        width: 17.5rem;
+        box-shadow: 1px 10px 10px rgb(255, 191, 141);
+    }
+    #cart-icon {
+        padding-right: 0.5rem;
+    }
+}
+
+#actual-price {
+    color: $Grayish-blue;
+    font-family: $KumbhSans-Medium;
+    margin-top: -0.5rem;
+}
