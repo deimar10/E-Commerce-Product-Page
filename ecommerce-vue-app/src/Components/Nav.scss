@@ -33,6 +33,9 @@
     img:first-child {
         height: 10%;
         width: 10%;
+        &:hover {
+            cursor: pointer;
+        }
     }
     img:last-child {
         width: 15%;

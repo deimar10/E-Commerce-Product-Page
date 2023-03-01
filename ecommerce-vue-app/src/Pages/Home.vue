@@ -1,7 +1,8 @@
 <template>
      <div class="home-container">
-        <Nav />
+        <Nav @toggle-cart='toggleCart' />
         <div class="product-main-section">
+          <Cart v-if="showCart" />
           <div class="product-images-section">
             <div class="product-image">
               <img src="/public/images/image-product-1.jpg" />
@@ -42,11 +43,23 @@
 
 <script>
 import Nav from '../Components/Nav.vue';
+import Cart from '../Components/Cart.vue';
 
 export default {
   name: 'Home',
   components: {
-    Nav
+    Nav,
+    Cart
+  },
+  data() {
+    return {
+      showCart: false
+    }
+  },
+  methods: {
+    toggleCart() {
+      this.showCart = !this.showCart
+    }
   }
 }
 </script>

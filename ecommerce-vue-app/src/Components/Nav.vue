@@ -13,15 +13,25 @@
            </ul>
        </nav>
        <div class="cart-section">
-           <img src="public/images/icon-cart.svg" />
+           <img @click="toggleCart" src="public/images/icon-cart.svg" />
            <img src="public/images/image-avatar.png" />
        </div>
    </div>
 </template>
 
 <script>
+import Cart from './Cart.vue';
+
 export default {
-    name: 'Nav'
+    name: 'Nav',
+    components: {
+    Cart
+  }, 
+  methods: {
+    toggleCart() {
+        this.$emit('toggle-cart')
+    }
+  }
 }
 </script>
 
