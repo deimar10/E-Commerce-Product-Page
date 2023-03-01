@@ -13,7 +13,7 @@
            </ul>
        </nav>
        <div class="cart-section">
-           <img @click="toggleCart" src="public/images/icon-cart.svg" />
+           <img @click="toggleCart" src="public/images/icon-cart.svg"><span v-if="count > 0" id="cart-count">{{ count }}</span><img/>
            <img src="public/images/image-avatar.png" />
        </div>
    </div>
@@ -27,6 +27,13 @@ export default {
     components: {
     Cart
   }, 
+  props: {
+    count: {
+        type: Number,
+        required: true,
+        default: 0
+    }
+  },
   methods: {
     toggleCart() {
         this.$emit('toggle-cart')

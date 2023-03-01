@@ -29,15 +29,28 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: relative;
+    height: 5rem;
     width: 20%;
     img:first-child {
-        height: 10%;
+        height: 30%;
         width: 10%;
         &:hover {
             cursor: pointer;
         }
     }
     img:last-child {
-        width: 15%;
+        width: 25%;
+    }
+    #cart-count {
+        background-color: $Orange;
+        color: $White;
+        padding-left: 0.45rem;
+        padding-right: 0.45rem;
+        border-radius: 0.75rem;
+        position: absolute;
+        top: 1.25rem;
+        left: 3.5rem;
+        font-size: 0.8rem;
     }
 }

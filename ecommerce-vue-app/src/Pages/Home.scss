@@ -93,13 +93,16 @@ body {
             border-radius: 0.25rem;
             width: 4rem;
             font-size: 1.75rem;
+            &:hover {
+               cursor: pointer; 
+            }
         }
         #count {
             @extend #minus;
             text-align: center;
             color: black;
             font-size: 1rem;
-            font-family: $KumbhSans-Medium
+            font-family: $KumbhSans-Medium;
         }
         #plus {
             @extend #minus;

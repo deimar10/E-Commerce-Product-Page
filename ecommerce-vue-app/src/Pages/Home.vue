@@ -1,6 +1,6 @@
 <template>
      <div class="home-container">
-        <Nav @toggle-cart='toggleCart' />
+        <Nav @toggle-cart='toggleCart' :count="count" />
         <div class="product-main-section">
           <Cart :add-cart="addCart" @update:addCart="updateAddCart" v-if="showCart" />
           <div class="product-images-section">
@@ -18,7 +18,8 @@
             <div class="description">
               <h3>Sneaker company</h3>
               <h1>Fall Limited Edition Sneakers</h1>
-              <p>These low-profile sneakers are your perfect casual wear
+              <p>
+                These low-profile sneakers are your perfect casual wear
                 companion. Featuring a durable rubber outer sole, they'll
                 withstand everything the weather can offer.
               </p>
@@ -30,9 +31,9 @@
             <p id="actual-price">$250.00</p>
             <div class="home-cart-section">
               <div class="amount-section">
-                <button id="minus">-</button>
-                <p id="count">0</p>
-                <button id="plus">+</button>
+                <button @click="decrement" id="minus">-</button>
+                <p id="count">{{ count }}</p>
+                <button @click="increment" id="plus">+</button>
               </div>
               <button @click="addToCart" id="cart"><span><fa id="cart-icon" icon="cart-shopping" /></span>Add to cart</button>
             </div>
@@ -54,7 +55,8 @@ export default {
   data() {
     return {
       showCart: false,
-      addCart: false
+      addCart: false,
+      count: 0
     }
   },
   methods: {
@@ -67,6 +69,20 @@ export default {
     },
     updateAddCart(value) {
       this.addCart = value;
+    },
+    increment() {
+      if(this.count >= 5) {
+        null
+      } else  {
+        this.count++;
+      }      
+    },
+    decrement() {
+      if(this.count === 0) {
+        null;
+      } else  {
+        this.count--;
+      }
     }
   }
 }
