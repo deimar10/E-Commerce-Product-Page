@@ -13,7 +13,7 @@
            </ul>
        </nav>
        <div class="cart-section">
-           <img @click="toggleCart" src="public/images/icon-cart.svg"><span v-if="count > 0" id="cart-count">{{ count }}</span><img/>
+           <img @click="toggleCart" src="public/images/icon-cart.svg"><span v-if="addCart === true && count > 0" id="cart-count">{{ count }}</span><img/>
            <img src="public/images/image-avatar.png" />
        </div>
    </div>
@@ -32,6 +32,10 @@ export default {
         type: Number,
         required: true,
         default: 0
+    },
+    addCart: {
+        type: Boolean,
+        required: true
     }
   },
   methods: {

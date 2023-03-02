@@ -1,6 +1,6 @@
 <template>
      <div class="home-container">
-        <Nav @toggle-cart='toggleCart' :count="count" />
+        <Nav @toggle-cart='toggleCart' :count="count" :add-cart="addCart" />
         <div class="product-main-section">
           <Cart :add-cart="addCart" @update:addCart="updateAddCart" v-if="showCart" />
           <div class="product-images-section">
@@ -64,8 +64,12 @@ export default {
       this.showCart = !this.showCart
     },
     addToCart() {
-      this.addCart = true
-      this.$emit('add-to-cart', this.addCart)
+      if(this.count > 0) {
+        this.addCart = true
+        this.$emit('add-to-cart', this.addCart) 
+      } else {
+        alert("Cant add 0 items to cart!")
+      }
     },
     updateAddCart(value) {
       this.addCart = value;
