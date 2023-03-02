@@ -10,7 +10,7 @@
             <div class="cart-product-right">
                 <h4>Fall Limited Edition Sneakers</h4>
                 <div class="cart-pricing">
-                    <p>$125.00 x 3</p><span>$375.00</span>
+                    <p>$125.00 x {{ count }}</p><span>${{ sum }}</span>
                     <fa @click="remove" id="trash-icon" icon="trash-can" />
                 </div>
             </div>
@@ -28,15 +28,39 @@
 export default {
     name: 'Cart',
     props: {
+        count: {
+        type: Number,
+        required: true,
+        default: 0
+        },
         addCart: {
             type: Boolean,
             required: true
         }
     }, 
+    data() {
+        return {
+            sum: ''
+        }
+    },
     methods: {
         remove() {
-            this.$emit('update:addCart', false);
+            this.$emit('update:addCart', false);      
+        },
+        summary() {
+            this.sum = (this.count * 125).toFixed(2);
         }
+    },
+    watch: {
+        count(newCount) {
+            this.summary();
+            if (newCount === 0) {
+                this.remove();
+            } 
+        }
+    },
+    created() {
+        this.summary();
     }
 }
 </script>

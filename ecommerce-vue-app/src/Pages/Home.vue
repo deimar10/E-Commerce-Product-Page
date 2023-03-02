@@ -2,7 +2,7 @@
      <div class="home-container">
         <Nav @toggle-cart='toggleCart' :count="count" :add-cart="addCart" />
         <div class="product-main-section">
-          <Cart :add-cart="addCart" @update:addCart="updateAddCart" v-if="showCart" />
+          <Cart :count="count" :add-cart="addCart" @update:addCart="updateAddCart" v-if="showCart" />
           <div class="product-images-section">
             <div class="product-image">
               <img src="/public/images/image-product-1.jpg" />
