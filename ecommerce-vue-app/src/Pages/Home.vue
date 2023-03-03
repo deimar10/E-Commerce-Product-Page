@@ -117,6 +117,16 @@ export default {
         thumbnail4: thumbnailNum === 4
       }
     }
+  },
+  mounted() {
+    const image1 = new Image();
+    image1.src = '/images/image-product-1.jpg';
+    const image2 = new Image();
+    image2.src = '/images/image-product-2.jpg';
+    const image3 = new Image();
+    image3.src = '/images/image-product-3.jpg';
+    const image4 = new Image();
+    image4.src = '/images/image-product-4.jpg';
   }
 }
 </script>
