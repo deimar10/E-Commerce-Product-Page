@@ -12,10 +12,10 @@
               <Lightbox v-if="lightbox" :lightbox="lightbox" @update:lightBox="updateLighBox" />
             </div>
             <div class="product-image-thumbnails">
-              <img src="/images/image-product-1-thumbnail.jpg" @click="updateThumbnail(1)" />
-              <img src="/images/image-product-2-thumbnail.jpg" @click="updateThumbnail(2)" />
-              <img src="/images/image-product-3-thumbnail.jpg" @click="updateThumbnail(3)" />
-              <img src="/images/image-product-4-thumbnail.jpg" @click="updateThumbnail(4)" />
+              <img src="/images/image-product-1-thumbnail.jpg" @click="updateThumbnail(1)" :style="thumbnails.thumbnail1 ? styleObject : null"/>
+              <img src="/images/image-product-2-thumbnail.jpg" @click="updateThumbnail(2)" :style="thumbnails.thumbnail2 ? styleObject : null"/>
+              <img src="/images/image-product-3-thumbnail.jpg" @click="updateThumbnail(3)" :style="thumbnails.thumbnail3 ? styleObject : null" />
+              <img src="/images/image-product-4-thumbnail.jpg" @click="updateThumbnail(4)" :style="thumbnails.thumbnail4 ? styleObject : null" />
             </div>
           </div>
           <div class="product-description-section">
@@ -110,12 +110,13 @@ export default {
       this.lightbox = value;
     },
     updateThumbnail(thumbnailNum) {
-      this.thumbnails = {
-        thumbnail1: thumbnailNum === 1,
-        thumbnail2: thumbnailNum === 2,
-        thumbnail3: thumbnailNum === 3,
-        thumbnail4: thumbnailNum === 4
-      }
+      Object.keys(this.thumbnails).forEach(key => {
+        if (key === 'thumbnail' + thumbnailNum) {
+          this.thumbnails[key] = true;
+        } else {
+          this.thumbnails[key] = false;
+        }
+      });
     }
   },
   mounted() {
@@ -127,6 +128,14 @@ export default {
     image3.src = '/images/image-product-3.jpg';
     const image4 = new Image();
     image4.src = '/images/image-product-4.jpg';
+  },
+  computed: {
+    styleObject() {
+      return {
+        border: '3px solid hsl(26, 100%, 55%)',
+        opacity: '40%' 
+      }
+    }
   }
 }
 </script>
