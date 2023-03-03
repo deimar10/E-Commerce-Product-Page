@@ -14,12 +14,12 @@ body {
 .product-images-section {
     width: 50%;
     .product-image {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        width: 75%;
+        margin: 0 auto;
         img {
-            width: 75%;
+            width: 100%;
             border-radius: 1rem;
+            cursor: pointer;
         }
     }
     .product-image-thumbnails {
@@ -31,6 +31,7 @@ body {
     } img {
         width: 20%;
         border-radius: 1rem;
+        cursor: pointer;
     }
 }
 

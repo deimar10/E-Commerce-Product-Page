@@ -5,13 +5,17 @@
           <Cart :count="count" :add-cart="addCart" @update:addCart="updateAddCart" v-if="showCart" />
           <div class="product-images-section">
             <div class="product-image">
-              <img src="/public/images/image-product-1.jpg" />
+              <img src="/images/image-product-1.jpg" @click="toggleLightBox" v-if="thumbnails.thumbnail1 === true"/>
+              <img src="/images/image-product-2.jpg" @click="toggleLightBox" v-if="thumbnails.thumbnail2 === true"/>
+              <img src="/images/image-product-3.jpg" @click="toggleLightBox" v-if="thumbnails.thumbnail3 === true"/>
+              <img src="/images/image-product-4.jpg" @click="toggleLightBox" v-if="thumbnails.thumbnail4 === true"/>
+              <Lightbox v-if="lightbox" :lightbox="lightbox" @update:lightBox="updateLighBox" />
             </div>
             <div class="product-image-thumbnails">
-              <img src="/public/images/image-product-1-thumbnail.jpg" />
-              <img src="/public/images/image-product-2-thumbnail.jpg" />
-              <img src="/public/images/image-product-3-thumbnail.jpg" />
-              <img src="/public/images/image-product-4-thumbnail.jpg" />
+              <img src="/images/image-product-1-thumbnail.jpg" @click="updateThumbnail(1)" />
+              <img src="/images/image-product-2-thumbnail.jpg" @click="updateThumbnail(2)" />
+              <img src="/images/image-product-3-thumbnail.jpg" @click="updateThumbnail(3)" />
+              <img src="/images/image-product-4-thumbnail.jpg" @click="updateThumbnail(4)" />
             </div>
           </div>
           <div class="product-description-section">
@@ -45,18 +49,29 @@
 <script>
 import Nav from '../Components/Nav.vue';
 import Cart from '../Components/Cart.vue';
+import Carousel from '../Components/Carousel.vue';
+import Lightbox from '../Components/Lightbox.vue';
 
 export default {
   name: 'Home',
   components: {
     Nav,
-    Cart
-  },
+    Cart,
+    Carousel,
+    Lightbox
+},
   data() {
     return {
       showCart: false,
       addCart: false,
-      count: 0
+      lightbox: false,
+      count: 0,
+      thumbnails: {
+        thumbnail1: true,
+        thumbnail2: false,
+        thumbnail3: false,
+        thumbnail4: false
+      }
     }
   },
   methods: {
@@ -86,6 +101,20 @@ export default {
         null;
       } else  {
         this.count--;
+      }
+    },
+    toggleLightBox() {
+      this.lightbox = true
+    },
+    updateLighBox(value) {
+      this.lightbox = value;
+    },
+    updateThumbnail(thumbnailNum) {
+      this.thumbnails = {
+        thumbnail1: thumbnailNum === 1,
+        thumbnail2: thumbnailNum === 2,
+        thumbnail3: thumbnailNum === 3,
+        thumbnail4: thumbnailNum === 4
       }
     }
   }
