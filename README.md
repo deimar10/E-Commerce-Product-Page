@@ -5,7 +5,7 @@
     * <strong>Screenshots</strong>
 ## Stack
 <div id="badges" style="display: flex; justify-content: start;">
-  <img src="https://img.shields.io/badge/Vue-white?style=for-the-badge&logo=vue&logoColor=#4FC08D" alt="Vue Badge"/>
+  <img src="https://img.shields.io/badge/Vue-white?style=for-the-badge&logo=vue.js&logoColor=#4FC08D" alt="Vue Badge"/>
   <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/JavaScript-white?style=for-the-badge&logo=javascript&logoColor=#F7DF1E" alt="Js Badge"/>
   <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/Sass-white?style=for-the-badge&logo=sass&logoColor=#CC6699" alt="Sass Badge"/>
 </div>
